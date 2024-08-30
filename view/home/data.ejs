@@ -1,0 +1,63 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/form.css"> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Query all elements with class 'createdAt' and 'fine'
+            document.querySelectorAll('.book-item').forEach(function(item) {
+                const time = item.querySelector('.createdAt').value;
+                const createdAt = new Date(time);
+                const now = new Date();
+
+                const timeDiff = now - createdAt;
+                const timeDiffHrs = Math.floor(timeDiff / (1000 * 60 * 60));
+
+                let fine = 0;
+                const finePerHr = 10;
+
+                if (timeDiffHrs > 1) {
+                    fine = (timeDiffHrs - 1) * finePerHr;
+                }
+
+                item.querySelector('.fine').textContent = `Fine: Rs.${fine}`;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <main>
+        <div class="form-container">
+            <%- include('./form.ejs') %>
+        </div>
+        <% if (books.length > 0) { %>
+            <div class="grid">
+                <% books.forEach(book => { %>
+                    <article class="card-book-items book-item">
+                        <header class="book-header">
+                            <div class="card-content">
+                                <h4 class="book-title">Book Name: <%= book.title %></h4>
+                            </div>
+                            <div class="card-content">
+                                <h5 class="student-name">Student Name: <%= book.student %></h5>
+                            </div>
+                            <div class="card-content">
+                                <h5 class="student-id">Roll Number: <%= book.studentId %></h5>
+                            </div>
+                            <div class="card-content">
+                                <p class="taken-time">Book taken at: <%= book.createdAt %></p>
+                            </div>
+                            <div class="card-content">
+                                <p class="return-time">To be returned before: <%= book.returnTime %></p>
+                            </div>
+                            <div class="card-content">
+                                <p class="fine">Fine: Calculating...</p>
+                                <input type="hidden" class="createdAt" value="<%= book.createdAt %>">
+                            </div>
+                        </header>
+                    </article>
+                <% }) %>
+            </div>
+        <% } %>
+    </main>
+
+<%- include('../includes/end.ejs') %>
