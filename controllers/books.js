@@ -1,17 +1,25 @@
 const Book = require('../model/books');
 
+const Returned = require('../model/returned-books')
+
 exports.getBooks = (req, res) => {
-    Book.findAll()
-    .then(books => {
-        res.render('home/data', {
-            books: books,
-            path: '/books'
-        })
-    })
-    .catch(err => {
-        console.log(err);
-    })
-}
+  // Fetch both books and returnedBooks simultaneously
+  Promise.all([
+      Book.findAll(),
+      Returned.findAll()
+  ])
+  .then(([books, returnedBooks]) => {
+      res.render('home/data', {
+          books: books,
+          returnedBooks: returnedBooks,
+          path: '/books'
+      });
+  })
+  .catch(err => {
+      console.log(err);
+  });
+};
+
 
 exports.getAddBooks = (req, res, next) => {
     res.render('home/form', {
