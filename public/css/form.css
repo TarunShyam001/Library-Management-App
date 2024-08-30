@@ -4,7 +4,7 @@
     padding: 20px;
     background-color: aquamarine;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(21, 21, 21, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-control {
@@ -19,7 +19,7 @@
 }
 
 .form-control input[type="text"],
-.form-control textarea {
+.form-control input[type="number"] {
     width: 100%;
     padding: 8px;
     font-size: 16px;
@@ -41,6 +41,7 @@
 }
 
 .form-btn {
+    margin-bottom: 30px;
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;

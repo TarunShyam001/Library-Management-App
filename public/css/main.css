@@ -1,0 +1,110 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+main {
+    padding: 20px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.gridReturn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.book-item, .card-return-book-items {
+    background-color: aqua;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 280px;
+}
+
+.card-return-book-items {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.return {
+    margin: 0 auto;
+    color: rgb(163, 20, 89);
+}
+
+.book-header, .return-book-content {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.book-title, .return-book-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00930c;
+}
+
+.student-name, .fine-on-book {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgb(174, 0, 171);
+}
+
+.student-id, .return-on {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16px;
+    color: #8a01b8;
+}
+
+
+.taken-time, .return-time {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 14px;
+    color: #ff7171;
+}
+.fine {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #7c0202;
+}
+
+.card-content p {
+    margin: 5px 0;
+}
+
+.btn-return {
+    background-color: #4CAF50;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-style: italic;
+    font-weight: 500;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-return:hover {
+    color: #45a049;
+    background-color: whitesmoke;
+}
