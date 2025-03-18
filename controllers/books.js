@@ -3,7 +3,6 @@ const Book = require('../model/books');
 const Returned = require('../model/returned-books')
 
 exports.getBooks = (req, res) => {
-  // Fetch both books and returnedBooks simultaneously
   Promise.all([
       Book.findAll(),
       Returned.findAll()

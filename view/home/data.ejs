@@ -1,30 +1,7 @@
 <%- include('../includes/head.ejs') %>
 <link rel="stylesheet" href="/css/main.css"> 
 <link rel="stylesheet" href="/css/form.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Query all elements with class 'createdAt' and 'fine'
-            document.querySelectorAll('.book-item').forEach(function(item) {
-                const time = item.querySelector('.createdAt').value;
-                const createdAt = new Date(time);
-                const now = new Date();
-
-                const timeDiff = now - createdAt;
-                const timeDiffHrs = Math.floor(timeDiff / (1000 * 60 * 60));
-
-                let fine = 0;
-                const finePerHr = 10;
-
-                if (timeDiffHrs > 1) {
-                    fine = (timeDiffHrs-1) * finePerHr;
-                }
-
-                item.querySelector('.fine').textContent = `Fine: Rs.${fine}`;
-
-                item.querySelector('.fineValue').value = fine;
-            });
-        });
-    </script>
+<script src="/js/main.js"></script>
 </head>
 
 <body>
@@ -47,7 +24,7 @@
                                 <h5 class="student-id">Roll Number: <%= book.studentId %></h5>
                             </div>
                             <div class="card-content">
-                                <p class="taken-time">Book taken at: <%= book.createdAt %></p>
+                                <p class="taken-time">Book taken at: <%= book.currentTime %></p>
                             </div>
                             <div class="card-content">
                                 <p class="return-time">To be returned before: <%= book.returnTime %></p>
@@ -79,6 +56,7 @@
                         <h4 class="return-book-title">Book Name : <%= returnedBook.title %></h4>
                     </div>
                     <div class="return-book-content">
+                        <input type="hidden" name="fineValue" class="fineRec" value="<%= returnedBook.fine %>">
                         <h5 class="fine-on-book">Fine on Book : <%= returnedBook.fine %></h5>
                     </div>
                     <div class="return-book-content">
@@ -86,6 +64,7 @@
                     </div>
                 </article>
                 <% }) %>
+                <h2 class="return" id="total-fine"> Total Fine Collected : Calculating... </h2>
             </div>
         <% } %>
     </main>
