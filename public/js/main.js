@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
 
         const timeDiff = now - createdAt;
-        const timeDiffHrs = Math.floor(timeDiff / (1000 * 60 * 60));
+        const timeDiffHrs = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
         let fine = 0;
         const finePerHr = 10;
 
-        if (timeDiffHrs > 1) {
+        if (timeDiffHrs > 2) {
             fine = (timeDiffHrs-1) * finePerHr;
         }
 

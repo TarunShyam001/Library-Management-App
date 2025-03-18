@@ -26,7 +26,6 @@ const Book = sequelize.define('book', {
       const createdAt = this.getDataValue('createdAt');  // Get the 'createdAt' field value from the instance
       if (createdAt) {
         const currentTime = new Date(createdAt);  // Convert 'createdAt' to a Date object
-        currentTime.setHours(currentTime.getHours());
   
         // Format the return time as a human-readable string (e.g., 'Mar 18 2025 12:50 PM')
         const createdTime = currentTime.toLocaleString('en-IN', {
@@ -51,7 +50,7 @@ const Book = sequelize.define('book', {
       const createdAt = this.getDataValue('createdAt');  // Get the 'createdAt' field value from the instance
       if (createdAt) {
         const returnTime = new Date(createdAt);  // Convert 'createdAt' to a Date object
-        returnTime.setHours(returnTime.getHours() + 1);  // Add 1 hour to the 'createdAt' time
+        returnTime.setDate(returnTime.getDate() + 2);  // Add 1 hour to the 'createdAt' time
   
         // Format the return time as a human-readable string (e.g., 'Mar 18 2025 12:50 PM')
         const formattedReturnTime = returnTime.toLocaleString('en-IN', {

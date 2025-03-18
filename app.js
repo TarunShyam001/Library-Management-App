@@ -29,8 +29,8 @@ app.use(errorController.get404);
 const port = 2340;
 
 sequelize
-.sync()
-// .sync({force : true})
+// .sync()
+.sync({force : true})
 .then(() => {
     app.listen(port, () => {
         console.log(`Server is running on port http://localhost:${port}/books
