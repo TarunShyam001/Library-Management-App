@@ -70,19 +70,6 @@ const Book = sequelize.define('book', {
       return null;  // If 'createdAt' is null, return null
     }
   }
-  
-  // returnTime : {
-  //   type : Sequelize.VIRTUAL,
-  //   get() {
-  //       const createdAt = this.getDataValue('createdAt');
-  //       if (createdAt) {
-  //           const returnTime = new Date(createdAt);
-  //           returnTime.setHours(returnTime.getHours() + 1);
-  //           return returnTime;
-  //       }
-  //       return null;
-  //   }
-  // } 
 },{
     timestamps: true
 });
